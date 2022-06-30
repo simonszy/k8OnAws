@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    tier: frontend
+    app: nginx
+spec:
+  container:
+    - name: nginx
+      image: nginx:1.7.9
+      ports:
+        - containerPort: 8080
