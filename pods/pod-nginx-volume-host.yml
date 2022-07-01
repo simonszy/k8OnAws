@@ -7,15 +7,15 @@ metadata:
     app:  nginx
   annotations:
     description: Nginx pod with emptyDir volume type
- spec:
-   volumes:
-     name: www-data
-     emptyDir: {}
-   containers:
-     - name: nginx
-       image: nginx
-       volumeMounts:
-         mountPath: /usr/share/nginx/html
-         name: www-data
-       ports:
-         - containerPort: 80
+spec:
+  volumes:
+    name: www-data
+    emptyDir: {}
+  containers:
+    - name: nginx
+      image: nginx
+      volumeMounts:
+        mountPath: /usr/share/nginx/html
+        name: www-data
+      ports:
+        - containerPort: 80
