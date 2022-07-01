@@ -17,12 +17,12 @@ spec:
         timeOutSeconds: 1
         periodSeconds: 5
         failureThreshold: 3
-  resources:
-    requests:
-      cpu: "500m"
-      memory: "64Mi"
-    limits:
-      cpu: "1"
-      memory: "512Mi"
+      resources:
+        requests:
+          cpu: "500m"
+          memory: "64Mi"
+        limits:
+          cpu: "1"
+          memory: "512Mi"
     ports:
       - containerPot: 80
