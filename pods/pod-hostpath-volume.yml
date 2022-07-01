@@ -8,7 +8,7 @@ spec:
   volumes:
     - name: docker-sock
       hostPath:
-        hostPath: /var/run/docker.sock
+        path: /var/run/docker.sock
         type: Socket
   containers:
     - name: ubuntu
