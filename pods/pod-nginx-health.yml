@@ -10,13 +10,13 @@ spec:
     - name: nginx
       image: nginx
       ports:
-        - containerPot: 80
+        - containerPort: 80
       livenessProbe:
         httpGet:
           path: /healthy
           port: 80
         initialDelaySeconds: 5
-        timeOutSeconds: 1
+        timeoutSeconds: 1
         periodSeconds: 5
         failureThreshold: 3
       resources:
