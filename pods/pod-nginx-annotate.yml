@@ -5,7 +5,7 @@ metadata:
   labels:
     tier: frontend
     app: nginx
-  annotate:
+  annotations:
     pod-url: http://mysite.com/nginx-pod
     supported-by: 1-800-222-3300
 spec:
