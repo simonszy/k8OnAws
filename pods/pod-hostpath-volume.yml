@@ -15,6 +15,6 @@ spec:
       image: ubuntu:16.04
       command: ["/bin/bash", "-c", "--"]
       args: [ "while true; do sleep 10; done;" ]
-      mountVolumes:
+      volumeMounts:
         - mountPath: /var/run/docker.sock
           name: docker-sock
