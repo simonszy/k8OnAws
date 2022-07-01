@@ -24,5 +24,5 @@ spec:
     limits:
       cpu: "1"
       memory: "512Mi"
-   ports:
-     - containerPot: 80
+    ports:
+      - containerPot: 80
