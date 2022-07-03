@@ -42,7 +42,7 @@ spec:
           image: nginx:1.14.0
           resources:
             requests:
-              cpu: "5m"      # A HPA requires a resource request such as the CPU or Memory
+              cpu: "10m"      # A HPA requires a resource request such as the CPU or Memory
           volumeMounts:
             - mountPath: /usr/share/nginx/html
               name: www-data-share
@@ -66,7 +66,7 @@ spec:
           image: openweb/git-sync:0.0.1
           resources:
             requests:
-              cpu: "5m"
+              cpu: "10m"
           volumeMounts:
             - mountPath: /usr/share/nginx/html
               name: www-data-share
