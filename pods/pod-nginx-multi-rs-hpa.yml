@@ -13,7 +13,6 @@ spec:
     matchLabels:
       tier: frontend
       app: nginx
-
   template:
     metadata:
       labels:
