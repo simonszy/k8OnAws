@@ -1,0 +1,15 @@
+apiVersion: apps/v1      # for k8s versions before 1.9.0 use apps/v1beta2 and before 1.8.0 use extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: nginx            # A unique name for the ReplicaSet in the current namespace
+  labels:
+    tier: frontend       # Labels assigned to the ReplicaSet object. Typically it is set to the same
+    app:  nginx          # values as the Pod's label (i.e. the .spec.template.metadata.labels)
+  annotations:
+    description: This ReplicaSet scales a stateless Nginx Pod
+spec:                    # Just like the Pod, the ReplicaSet has a spec section
+  replicas: 3            # Set the desired number of replicas here
+  selector:              # The label selector is used by this ReplicaSet to identify the Pods its managing
+    matchLabels:         # The spec.selector.matchLabels must match the spec.template.metadata.labels
+      tier: frontend
+      app: nginx
