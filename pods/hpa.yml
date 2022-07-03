@@ -6,7 +6,7 @@ spec:
   maxReplicas: 50
   minReplicas: 2
   scaleTargetRef:
-    apiVersion: apps/v1
-    kind: ReplicaSet
+   apiVersion: apps/v1      # for k8s versions before 1.9.0 use apps/v1beta2 and before 1.8.0 use extensions/v1beta1
+   kind: Deployment
     name: nginx
   targetCPUUtilizationPercentage: 70
