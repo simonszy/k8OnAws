@@ -13,3 +13,39 @@ spec:                    # Just like the Pod, the ReplicaSet has a spec section
     matchLabels:         # The spec.selector.matchLabels must match the spec.template.metadata.labels
       tier: frontend
       app: nginx
+
+  template:              # This is the Pod template. The schema is exactly the same as the Pod without apiVersion or kind keys
+    metadata:            # A Pod name is not required; the ReplicaSet will assign unique names to each of the Pod replicas
+      labels:
+        tier: frontend   # Labels must be assigned to the Pod controlled by this replicaset.
+        app:  nginx      # Make sure to not overlap these labels with any other Pods or controllers
+    spec:                # Notice that the pod spec is now nested inside the template
+      volumes:
+        - name: www-data-share
+          emptyDir: {}
+      containers:
+        - name: nginx
+          image: nginx:1.13.8
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html
+              name: www-data-share
+              readOnly: true
+          ports:
+            - containerPort: 80
+
+        - name: git-sync
+          image: openweb/git-sync:0.0.1
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html
+              name: www-data-share
+          env:
+            - name: GIT_SYNC_REPO
+              value: "https://github.com/naveenjoy/naveenjoy.github.io.git"
+            - name: GIT_SYNC_DEST
+              value: "/usr/share/nginx/html"
+            - name: GIT_SYNC_BRANCH
+              value: "master"
+            - name: GIT_SYNC_REV
+              value: "FETCH_HEAD"
+            - name: GIT_SYNC_WAIT
+              value: "10"
