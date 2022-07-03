@@ -24,7 +24,7 @@ spec:
         - name: www-data-share
           emptyDir: {}
       containers:
-        - name: nginx                qyekwyt
+        - name: nginx
           image: nginx
           resources:
             requests:
