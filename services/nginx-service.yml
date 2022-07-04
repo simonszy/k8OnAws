@@ -29,7 +29,7 @@ spec:
       maxUnavailable: 25%
       maxSurge: 25%
   minReadySeconds: 0
-  progressDeadlineSeconds: 600
+  progressDeadlineSeconds: 600 #
 
   selector:              # The spec.selector is used by this Deployment to identify the Pods its managing
     matchLabels:         # The spec.selector.matchLabels must match one of the labels in spec.template.metadata.labels
